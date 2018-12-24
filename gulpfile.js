@@ -157,6 +157,12 @@ gulp.task('generate-service-worker', () => {
   });
 });
 
+// Manifest
+gulp.task('manifest', function() {
+  return gulp.src('app/manifest.json')
+    .pipe(gulp.dest('dist'));
+})
+
 // Build Sequences
 // ---------------
 
@@ -170,7 +176,7 @@ gulp.task('build', function(callback) {
   runSequence(
     'clean:dist',
     ['sass', 'babel', 'unusedcss'],
-    'gcmq', 'images',
+    'gcmq', 'images', 'manifest',
     'useref',
     'generate-service-worker',
     callback
