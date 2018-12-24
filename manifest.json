@@ -13,7 +13,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/memory-game",
+  "start_url": "https://moaaz-bhnas.github.io/memory-game",
   "background_color": "#cae7e7",
   "display": "fullscreen",
   "theme_color": "#cae7e7"
