@@ -1,0 +1,20 @@
+{
+  "short_name": "Memory Game",
+  "name": "Memory Matching Game",
+  "icons": [
+    {
+      "src": "https://i.ibb.co/qBkzmb4/memory-256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "https://i.ibb.co/qBkzmb4/memory-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#cae7e7",
+  "display": "fullscreen",
+  "theme_color": "#cae7e7"
+}
