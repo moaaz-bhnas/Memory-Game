@@ -1,0 +1,476 @@
+/* Variables --- */
+$padding-sides: .5rem;
+$card-border-radius: .5rem;
+
+// Colors
+$background: #cae7e7;
+$board: #60b8b8;
+$card-hover: #527979;
+$text: #275858;
+$tab-target: #583327;
+$tab-target-hover: #947d75;
+$reset-back: #cdc2be;
+$star: #6e701f;
+$true: #B8FCC0;
+$false: #FCB8B8;
+
+// Breakpoints
+$break-xs: 230px;
+$break-s: 410px;
+$break-m: 443px;
+$break-l: 1022px;
+
+/* Mixins --- */
+@mixin spot {
+  padding: .5rem;
+  border: 2.5px solid;
+  border-radius: 1rem;
+}
+@mixin remove-list-defaults {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+@mixin custom-shadow {
+  box-shadow: 0px 15px 20px -5px #444
+}
+
+/* ===================================
+  Base styles
+  ==================================== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 105%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: $text;
+  background-color: $background;
+  font-weight: bold;
+  position: relative;
+
+  @media screen and (min-width: $break-m) {
+    font-size: 110%;
+  }
+}
+
+body {
+  @media screen and (min-width: $break-l) {
+    max-width: $break-l;
+    margin: 0 auto;
+  }
+}
+
+ul {
+  margin: 0;
+}
+
+button {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+a,
+button {
+  color: $tab-target;
+
+  transition-property: color, box-shadow;
+  transition-duration: .2s;
+}
+
+a:hover,
+a:focus,
+button:hover,
+button:focus {
+  color: $tab-target-hover;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* ===================================
+  Header
+  ==================================== */
+header {
+  text-align: center;
+  padding: .5rem $padding-sides;
+
+  h1 {
+    font-size: 2.7rem;
+    margin: 0;
+  }
+}
+
+/* ===================================
+  Main
+  ==================================== */
+
+/* ----------------------------
+  Rules Section
+  ---------------------------- */
+#rules-section {
+  padding: .5rem $padding-sides;
+  max-width: 410px;
+  margin: 0 auto;
+
+  h2 {
+    margin: 0;
+  }
+
+  button {
+    text-decoration: underline;
+  }
+
+  #rules {
+    margin-top: .6rem;
+    line-height: 1.4;
+    height: 0;
+    overflow: hidden;
+  }
+
+  li {
+    margin-bottom: .4rem;
+  }
+
+  [aria-label="Down arrow"] {
+    font-weight: bold;
+  }
+}
+
+/* ----------------------------
+  Instructions Section
+  ---------------------------- */
+.keyboard-support {
+  display: none;
+  max-width: 250px;
+  text-align: center;
+  position: absolute;
+  top: 40%;
+  // background-color: #e6ea41;
+
+  @media screen and (min-width: $break-l) {
+    display: block;
+  }
+
+  ul {
+    @include remove-list-defaults();
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+
+  img {
+    width: 6rem;
+  }
+
+  .home,
+  .end {
+    position: absolute;
+    top: 30%;
+    font-size: .9rem;
+    padding: .35rem;
+    border: 2px solid;
+    border-radius: .3rem;
+  }
+
+  .home {
+    right: 10.7rem;
+  }
+
+  .end {
+    left: 10.7rem;
+  }
+
+  button {
+    @include spot();
+    background-color: $reset-back;
+    position: relative;
+    top: -.5rem;
+
+    &:hover,
+    &:focus {
+      box-shadow: 2px 2px 5px;
+    }
+  }
+
+  small {
+    display: block;
+    line-height: 1.5;
+  }
+}
+
+/* ----------------------------
+  State and Options Section
+  ---------------------------- */
+.state-options-section {
+  padding: .5rem $padding-sides;
+  text-align: center;
+
+  h2 {
+    position: absolute;
+    left: -200rem;
+  }
+
+  @media screen and (min-width: $break-s) {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+/* State list --- */
+ul#state {
+  font-size: 1.1rem;
+  @include remove-list-defaults();
+  margin-bottom: .5rem;
+
+
+  @media screen and (min-width: $break-s) {
+    float: left;
+    margin-bottom: 0;
+  }
+
+  > li {
+    display: inline-block;
+    vertical-align: middle;
+    @include spot();
+    margin-right: .5rem;
+  }
+
+  .stars {
+    padding: .3rem .3rem .5rem;
+    border-color: $text;
+  }
+}
+
+.stars-list {
+  @include remove-list-defaults();
+  color: $star;
+  font-size: 2rem;
+
+  .star {
+    display: inline-block;
+  }
+}
+
+/* Reset Button --- */
+.reset {
+  @include spot();
+  background-color: $reset-back;
+
+  &:hover,
+  &:focus {
+    box-shadow: 2px 2px 5px;
+  }
+}
+
+.state-options-section {
+  .reset {
+    font-size: 1.7rem;
+    font-weight: bold;
+    padding: .3rem .5rem;
+
+    @media screen and (min-width: $break-s) {
+      float: right;
+    }
+
+    [aria-label="Reset icon"] {
+      display: block;
+      transition: .2s transform;
+    }
+  }
+}
+
+.no-csstransforms .reset:hover [aria-label="Reset icon"],
+.no-csstransforms .reset:focus [aria-label="Reset icon"] {
+  text-decoration: underline;
+}
+
+.csstransforms .reset:hover [aria-label="Reset icon"],
+.csstransforms .reset:focus [aria-label="Reset icon"] {
+  transform: rotate(-30deg);
+}
+
+/* ----------------------------
+  Game Board
+  ---------------------------- */
+.board-section {
+  padding: .5rem $padding-sides;
+  text-align: center;
+
+  h2 {
+    position: absolute;
+    left: -200rem;
+  }
+
+  #status {
+    height: 0;
+    overflow: hidden;
+  }
+}
+
+.board {
+  background-color: $board;
+  @include remove-list-defaults();
+  padding: .3rem;
+  border-radius: 1rem;
+  @include custom-shadow();
+
+  @media screen and (min-width: $break-m) {
+    max-width: 410px;
+    margin: 0 auto;
+
+    padding: .6rem;
+  }
+
+  .row {
+    height: 22%;
+  }
+
+  .row:not(:last-child) {
+    margin-bottom: 3%;
+  }
+
+  .row:first-child {
+    margin-top: 1.5%;
+  }
+}
+
+.row {
+  ul {
+    height: 100%;
+    padding-left: 0;
+  }
+}
+
+.card {
+  width: 22%; height: 100%;
+  margin: 0 1.5%;
+  display: inline-block;
+  vertical-align: middle;
+
+  button {
+    width: 100%; height: 100%;
+    background-color: #fff;
+    padding: .1rem;
+    border-radius: $card-border-radius;
+
+    transition: box-shadow .1s;
+
+    position: relative;
+
+    &:hover,
+    &:focus {
+      @include custom-shadow();
+
+      .front {
+        background-color: $card-hover;
+      }
+    }
+    
+    &:active {
+      box-shadow: 5px 5px 10px;
+    }
+  }
+
+  .front {
+    width: 100%; height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    background-color: $text;
+    border-radius: $card-border-radius;
+
+    transition-property: background-color;
+    transition-duration: .1s;
+  }
+}
+
+.no-csstransforms3d {
+  .front {
+    transition-property: background-color, opacity;
+    transition-duration: .1s, .3s;
+  }
+
+  [aria-selected="true"] .front {
+    opacity: 0;
+  }
+}
+
+.csstransforms3d .board {
+  perspective: 400px;
+
+  button {
+    transform-style: preserve-3d;
+    transition: transform .55s cubic-bezier(.59,1.39,.6,1.01), box-shadow .1s;
+  }
+
+  .front {
+    backface-visibility: hidden;
+  }
+
+  .back {
+    transform: rotateY(-180deg);
+  }
+
+  [aria-selected="true"] {
+    transform: rotateY(180deg);
+  }
+}
+
+/* ----------------------------
+  Modal Window
+  ---------------------------- */
+#modal-container {
+  display: none;
+  position: fixed;
+  top: 0; bottom: 0; left: 0; right: 0;
+  background-color: rgba($color: #000000, $alpha: .7);
+  text-align: center;
+
+  &[data-visible="true"] {
+    display: block;
+  }
+}
+
+#result-modal {
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 310px;
+  padding: 2.3rem 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .7);
+
+  @media screen and (max-width: 314px) {
+    width: 100%;
+  }
+
+  #moves-time {
+    font-size: 1.3rem;
+    margin: 0;
+  }
+
+  .stars-list {
+    font-size: 2.5rem;
+    margin: .8rem 0;
+  }
+
+  .reset {
+    font-size: 1.3rem;
+  }
+}
+
+.no-csstransforms {
+  #result-modal {
+    top: 30%;
+    left: 39%;
+  }
+}
