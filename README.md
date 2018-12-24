@@ -6,7 +6,7 @@
 - The gameplay rules are very simple: flip over two hidden cards at a time to locate the ones that match!
 
 ## Live
-https://moaaz-bhnas.github.io/memory-game-mvc/
+https://moaaz-bhnas.github.io/memory-game/
  
 ## Screenshots
 ![live preview](https://media.giphy.com/media/EQm0IFh2h4VgO1RD5T/giphy.gif)
@@ -24,10 +24,10 @@ Gulp is the one that will run all the compilation, watchers and others tasks. To
 ## Installation
 ```
 # Clone this repository
-$ git clone https://github.com/moaaz-bhnas/memory-game-mvc.git
+$ git clone https://github.com/moaaz-bhnas/memory-game.git
 
 # Go into the repository
-$ cd memory-game-mvc
+$ cd memory-game
 
 # Install dependencies
 $ npm install
