@@ -11,8 +11,8 @@ https://moaaz-bhnas.github.io/memory-game/
 ## Screenshots
 ![live preview](https://media.giphy.com/media/EQm0IFh2h4VgO1RD5T/giphy.gif)
 
-## Tech/framework used
-Only vanilla JavaScript (mvc)
+## Built With
+vanilla JavaScript (MVC & OOP)
 
 ## Requeriments
 This project have some requeriments you need to meet in order to compile it. First of all, you need NodeJS in order to run javascript on the console, you can go to the [NodeJS](https://nodejs.org/en/) site and follow trough the installation process. After you get the node command on the console you will have the node package manager npm as well. Now you need to install Gulp with the following command.  
