@@ -5,6 +5,11 @@
 - The cards are arranged randomly on the grid with the symbol face down.
 - The gameplay rules are very simple: flip over two hidden cards at a time to locate the ones that match!
 
+## Quality Standards
+- Fully accessible and playable with keyboard only like native games.
+- Cross-browser compatible (Works on most common browsers available, including IE).
+- Performant and responsive.
+
 ## Live
 https://moaaz-bhnas.github.io/memory-game/
  
